@@ -1,0 +1,105 @@
+.bg-slider{
+    background-color: #D9E8FF;
+}
+.first-slider{
+    width:1415px;
+    margin:auto;
+    padding:100px 0;
+    display: flex;
+}
+.nav-slider{
+    padding-top:205px;
+    width:325px;
+    &__header-text{
+        font-family: $rubik;
+        font-weight: 400;
+        font-size: 22px;
+        color: #0b0b0b;
+    }
+    &__text{
+        padding-top:50px;
+        color: $dark-blue;
+        font-family: $merri;
+        font-size: 36px;
+    }
+}
+.wrapper-btn{
+    display: flex;
+    padding-top:55px;
+    &__btn{
+        width: 65px;
+        height: 65px;
+        background-color: #181818;
+        border-radius: 50%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border: 0;
+        &--previous-slide{
+            margin-right:20px;
+            background-image: url('/assets/images/previous_slide.png');
+            background-repeat:no-repeat;
+            background-position: center;
+        }
+        &--next-slide{
+            background-image: url('/assets/images/next-slide.png');
+            background-repeat:no-repeat;
+            background-position: center;
+        }
+        &:hover{
+            background-color: $dark-blue;
+            cursor: pointer;
+        }
+    }
+}
+#first-slider{
+    width:1104px;
+    overflow: hidden;
+    .content{
+        display:flex;
+        width: 1472px;
+        position: relative;
+        left: 0;
+        transition:  all ease 1s;
+    }
+}
+.slide{
+    position: relative;
+    display: grid;
+    grid-gap: 40px;
+    & img{
+        position:relative;
+    }
+    &__plus{
+        position: absolute;
+        width: 76px;
+        height: 76px;  
+        border: 1px solid $white;
+        border-radius: 50%;
+        bottom: 89px;
+        left: calc(50% - 38px);
+        text-align: center;
+        font-size: 44px;
+        font-weight: 300;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__name{
+        position:absolute;
+        bottom: 25px;
+        color: $white;
+        width: 100%;    
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: $rubik;
+
+    }
+    &__content{
+        display:flex;
+        margin-left:40px;
+    }
+}

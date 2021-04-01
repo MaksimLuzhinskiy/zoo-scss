@@ -5,12 +5,13 @@
 </head>
 <body>
 
-    {{> header }}
-
-    {{> body }}
-
-    {{> footer }}
-
+    <div class="page">
+        {{> header }}
+        <main class="main">
+            {{> body }}
+        </main>
+        {{> footer }}
+    </div>
     <script src="assets/js/app.js"></script>
 </body>
 </html>

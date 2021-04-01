@@ -1,0 +1,43 @@
+.second-block{
+    margin: auto;
+    width:1415px;
+    padding:110px 0 110px 0;
+    display:flex;
+    justify-content: space-between;
+    &__img{
+        display: flex;
+    }
+    &__text{
+        font-size: 22px;
+        font-family: $rubik;
+        color: #0b0b0b;
+        font-weight: 400;
+    }
+    &__headertext{
+        padding-top:50px;
+        font-weight: 700;
+        font-size:36px;
+        font-family: $merri;
+        color: $dark-blue;
+    }
+    &__second-text{
+        padding-top:40px;
+        font-family: $rubik;
+        font-weight: 400;
+        font-size:18px;
+        color: #747474;
+    }
+    &-button{
+        padding-top: 60px;
+        &__button{
+            @include button;
+            &--dark{
+                @include dark-btn;
+            }
+        }
+    }
+}
+.second-block-wrapper{
+    width:700px;
+    padding-top:140px;
+}

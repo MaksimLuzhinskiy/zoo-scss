@@ -25,24 +25,27 @@ const distPath = 'dist/';
 
 const path = {
     build: {
-        html:   distPath,
-        js:     distPath + "assets/js/",
-        css:    distPath + "assets/css/",
+        html:   distPath + "pages/",
+        js:     distPath + "pages/js/",
+        css:    distPath + "pages/css/",
         images: distPath + "assets/images/",
+        icons:  distPath + "assets/icons/",
         fonts:  distPath + "assets/fonts/"
     },
     src: {
         html:   srcPath + "*.html",
         js:     srcPath + "assets/js/*.js",
         css:    srcPath + "assets/scss/*.scss",
-        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+        images: srcPath + "assets/images/**/*.{jpg,png,gif,webp,webmanifest,xml,json}",
+        icons:  srcPath + "assets/icons/**/*.{svg,ico}",
         fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
     },
     watch: {
         html:   srcPath + "**/*.html",
         js:     srcPath + "assets/js/**/*.js",
         css:    srcPath + "assets/scss/**/*.scss",
-        images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+        images: srcPath + "assets/images/**/*.{jpg,png,gif,webp,webmanifest,xml,json}",
+        icons:  srcPath + "assets/icons/**/*.{svg,ico}",
         fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
     },
     clean: "./" + distPath
@@ -214,6 +217,25 @@ function images(cb) {
     cb();
 }
 
+function icons(cb) {
+    return src(path.src.icons)
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.mozjpeg({quality: 95, progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            })
+        ]))
+        .pipe(dest(path.build.icons))
+        .pipe(browserSync.reload({stream: true}));
+
+    cb();
+}
+
 function fonts(cb) {
     return src(path.src.fonts)
         .pipe(dest(path.build.fonts))
@@ -234,9 +256,10 @@ function watchFiles() {
     gulp.watch([path.watch.js], jsWatch);
     gulp.watch([path.watch.images], images);
     gulp.watch([path.watch.fonts], fonts);
+    gulp.watch([path.watch.icons], icons);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, icons, fonts));
 const watch = gulp.parallel(build, watchFiles, serve);
 
 
@@ -246,6 +269,7 @@ exports.html = html;
 exports.css = css;
 exports.js = js;
 exports.images = images;
+exports.icons = icons;
 exports.fonts = fonts;
 exports.clean = clean;
 exports.build = build;
