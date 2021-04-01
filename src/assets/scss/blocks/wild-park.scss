@@ -1,0 +1,50 @@
+.wild-park{
+    margin: auto;
+    width:1415px;
+    padding:53px 0 27px 0;
+    display:flex;
+    justify-content: space-between;
+    &__img{
+        display:flex;
+    }
+    &-wrapper{
+        padding-top:80px;
+    }
+    &__text{
+        font-size: 22px;
+        font-family: $rubik;
+        color: #626262;
+    }
+    &__headertext{
+        padding-top:25px;
+        font-size:84px;
+        font-weight: 700;
+        color: $dark-blue;
+        font-family: $merri;
+        & span{
+            position:relative;
+        }
+        & span:before{
+            content: "";
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+            top: 15px;
+            left: 7px;
+        }
+    }
+    &-button{
+        padding-top: 50px;
+        &__button{
+           @include button;
+            &--dark{
+                @include dark-btn;
+            }
+            &--white{
+                @include white-btn;
+            }
+        }
+    }
+}

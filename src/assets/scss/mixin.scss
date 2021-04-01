@@ -1,0 +1,39 @@
+@mixin dark-btn {
+    border: 2px solid $blue;
+    background-color: $blue; 
+    color: $white;
+    font-family: $rubik;
+    font-weight: 500;
+    font-size:18px;
+    &:hover{
+        border: 2px solid $dark-blue;
+        background-color: $dark-blue;
+    }
+    &:active{
+        border: 2px solid $active-color;
+        background-color: $active-color;
+    }
+}
+
+@mixin white-btn {
+    border: 2px solid $blue;
+    background-color: transparent; 
+    color: $blue;
+    font-family: $rubik;
+    font-weight: 500;
+    font-size:18px;
+    &:hover{
+        border: 2px solid $dark-blue;
+        color: $dark-blue;
+    }
+    &:active{
+        border: 2px solid $active-color;
+        color: $active-color;
+    }
+}
+
+@mixin button {
+    outline: none;
+    padding: 18px 75px;
+    border-radius: 5px;
+}

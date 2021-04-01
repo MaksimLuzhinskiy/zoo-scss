@@ -1,0 +1,116 @@
+.bg-second-slider{
+    background-color: $dark-blue;
+    padding:100px 0 100px 0;
+}
+.second-slider{
+    margin: 0 60px 0 244px;
+    display: flex;
+}
+.info{
+    width: 533px;
+    margin-right:40px;
+    & div{
+        color: $white;
+    }
+    &__infotext{
+        font-family: $rubik;
+        font-weight: 400;
+        font-size: 22px;    
+        margin-bottom:62px;
+    }
+    &__header-text{
+        font-family: $merri;
+        font-weight: 700;
+        font-size: 36px;
+        margin-bottom:40px;
+    }
+    &__text-content{
+        font-family: $rubik;
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom:60px;
+        line-height:27px;
+    }
+    &__button{
+        @include button;
+        &--white{
+            @include white-btn;
+        }
+        &--whiteborder{
+            border:2px solid #fcfcfc;
+            color: #fcfcfc;
+        }
+        &:hover{
+            border: 2px solid lightcoral;
+            color: lightcoral;
+        }
+    }
+}
+.slider-two{
+    &__more-reviews{
+        color: $white;
+        display: flex;
+        .more-reviews--svg{
+            margin-left:10px;
+        }
+    }
+    &__content{
+        display: grid;
+        grid-gap:20px;
+        grid-template-columns: 512px 512px;
+    }
+}
+.block-slide{
+    width:auto;
+    background-color: $white;
+    height:273px;
+    padding:40px 40px 0 40px;
+    border-radius: 20px;
+    &__icon img{
+        border-radius: 50%;
+    }
+    &__name{
+        margin-left:20px;
+        font-family: $rubik;
+        font-weight: 600;
+        font-size: 24px;
+        color: #0b0b0b;
+    }
+    &__text{
+        font-family: $rubik;
+        font-weight: 400;
+        font-size: 18px;
+        color: #181818;
+    }
+}
+.blick-slide-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 37px;
+}
+.button-wrapper{
+    margin-top:30px;
+    &__btn{
+        width: 65px;
+        height: 65px;
+        background-color: $white;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        &--previous-slide{
+            margin-right:20px;         
+            background-image: url('/assets/images/Arrow2_next.png');
+            background-repeat:no-repeat;
+            background-position: center;
+        }
+        &--next-slide{
+            background-image: url('/assets/images/Arrow2_prev.png');
+            background-repeat:no-repeat;
+            background-position: center;
+        }
+        &:hover{
+            background-color: gray;
+            cursor:pointer;
+        }
+    }
+}
